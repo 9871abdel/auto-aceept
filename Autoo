@@ -16,8 +16,8 @@ TradeAssistGUI.Parent = playerGui
 local MainFrame = Instance.new("Frame")
 MainFrame.Name = "MainFrame"
 MainFrame.AnchorPoint = Vector2.new(0.5, 0)
-MainFrame.Position = UDim2.new(0.5, 0, 0.25, 0)
-MainFrame.Size = UDim2.new(0.3, 0, 0.7, 0)
+MainFrame.Position = UDim2.new(0.5, 0, 0.15, 0) -- Moved up slightly
+MainFrame.Size = UDim2.new(0.35, 0, 0.8, 0) -- Made wider and taller
 MainFrame.BackgroundColor3 = Color3.fromRGB(25, 25, 30)
 MainFrame.BorderSizePixel = 0
 MainFrame.Active = true
@@ -101,7 +101,7 @@ ContentFrame.Name = "ContentFrame"
 ContentFrame.Size = UDim2.new(1, 0, 1, -40)
 ContentFrame.Position = UDim2.new(0, 0, 0, 40)
 ContentFrame.BackgroundTransparency = 1
-ContentFrame.ClipsDescendants = true
+ContentFrame.ClipsDescendants = false -- Changed to false so content isn't cut off
 ContentFrame.Parent = MainFrame
 
 MinimizeButton.MouseButton1Click:Connect(function()
@@ -122,7 +122,7 @@ end)
 -- Profile Image Frame
 local PlayerIconFrame = Instance.new("Frame")
 PlayerIconFrame.AnchorPoint = Vector2.new(0.5, 0)
-PlayerIconFrame.Size = UDim2.new(0, 130, 0, 130)
+PlayerIconFrame.Size = UDim2.new(0, 100, 0, 100) -- Made slightly smaller
 PlayerIconFrame.Position = UDim2.new(0.5, 0, 0, 10)
 PlayerIconFrame.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
 PlayerIconFrame.BorderSizePixel = 0
@@ -133,7 +133,7 @@ Instance.new("UIStroke", PlayerIconFrame).Thickness = 1.5
 
 local PlayerIcon = Instance.new("ImageLabel")
 PlayerIcon.AnchorPoint = Vector2.new(0.5, 0.5)
-PlayerIcon.Size = UDim2.new(0, 120, 0, 120)
+PlayerIcon.Size = UDim2.new(0, 90, 0, 90) -- Made slightly smaller
 PlayerIcon.Position = UDim2.new(0.5, 0, 0.5, 0)
 PlayerIcon.BackgroundColor3 = Color3.fromRGB(70, 70, 70)
 PlayerIcon.BorderSizePixel = 0
@@ -148,8 +148,8 @@ UsernameBox.Name = "UsernameBox"
 UsernameBox.PlaceholderText = "Enter Username"
 UsernameBox.Font = Enum.Font.GothamBold
 UsernameBox.TextSize = 14
-UsernameBox.Size = UDim2.new(0.9, 0, 0, 40)
-UsernameBox.Position = UDim2.new(0.05, 0, 0, 150)
+UsernameBox.Size = UDim2.new(0.9, 0, 0, 35) -- Made slightly smaller
+UsernameBox.Position = UDim2.new(0.05, 0, 0, 120) -- Moved up
 UsernameBox.BackgroundColor3 = Color3.fromRGB(60, 60, 60)
 UsernameBox.TextColor3 = Color3.new(1, 1, 1)
 UsernameBox.ClearTextOnFocus = false
@@ -159,19 +159,19 @@ UsernameBox.Parent = ContentFrame
 
 -- Action Buttons Container
 local ButtonContainer = Instance.new("Frame")
-ButtonContainer.Size = UDim2.new(1, 0, 0, 220) -- Increased height to fit the new button
-ButtonContainer.Position = UDim2.new(0, 0, 0, 220)
+ButtonContainer.Size = UDim2.new(1, 0, 0, 270) -- Increased height significantly
+ButtonContainer.Position = UDim2.new(0, 0, 0, 170) -- Moved up
 ButtonContainer.BackgroundTransparency = 1
 ButtonContainer.Parent = ContentFrame
 
 local ButtonLayout = Instance.new("UIListLayout", ButtonContainer)
 ButtonLayout.SortOrder = Enum.SortOrder.LayoutOrder
-ButtonLayout.Padding = UDim.new(0, 10)
+ButtonLayout.Padding = UDim.new(0, 8) -- Reduced padding slightly
 ButtonLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
 
 -- Freeze Button (Original)
 local FreezeButton = Instance.new("TextButton")
-FreezeButton.Size = UDim2.new(0.9, 0, 0, 40)
+FreezeButton.Size = UDim2.new(0.9, 0, 0, 35) -- Made slightly smaller
 FreezeButton.Text = "FREEZE TRADE"
 FreezeButton.Font = Enum.Font.GothamBold
 FreezeButton.TextSize = 14
@@ -183,7 +183,7 @@ FreezeButton.Parent = ButtonContainer
 
 -- Force Trade Button
 local ForceTradeButton = Instance.new("TextButton")
-ForceTradeButton.Size = UDim2.new(0.9, 0, 0, 40)
+ForceTradeButton.Size = UDim2.new(0.9, 0, 0, 35)
 ForceTradeButton.Text = "FORCE TRADE PETS"
 ForceTradeButton.Font = Enum.Font.GothamBold
 ForceTradeButton.TextSize = 14
@@ -195,7 +195,7 @@ ForceTradeButton.Parent = ButtonContainer
 
 -- Auto Accept Button
 local AutoAcceptButton = Instance.new("TextButton")
-AutoAcceptButton.Size = UDim2.new(0.9, 0, 0, 40)
+AutoAcceptButton.Size = UDim2.new(0.9, 0, 0, 35)
 AutoAcceptButton.Text = "AUTO ACCEPT"
 AutoAcceptButton.Font = Enum.Font.GothamBold
 AutoAcceptButton.TextSize = 14
@@ -207,7 +207,7 @@ AutoAcceptButton.Parent = ButtonContainer
 
 -- Freeze Trade Button (Below Auto Accept)
 local NewFreezeTradeButton = Instance.new("TextButton")
-NewFreezeTradeButton.Size = UDim2.new(0.9, 0, 0, 40)
+NewFreezeTradeButton.Size = UDim2.new(0.9, 0, 0, 35)
 NewFreezeTradeButton.Text = "FREEZE TRADE"
 NewFreezeTradeButton.Font = Enum.Font.GothamBold
 NewFreezeTradeButton.TextSize = 14
@@ -217,14 +217,14 @@ Instance.new("UICorner", NewFreezeTradeButton).CornerRadius = UDim.new(0, 8)
 Instance.new("UIStroke", NewFreezeTradeButton).Transparency = 0.8
 NewFreezeTradeButton.Parent = ButtonContainer
 
--- NEW Add Best Pet Button
+-- Add Best Pet Button
 local AddBestPetButton = Instance.new("TextButton")
-AddBestPetButton.Size = UDim2.new(0.9, 0, 0, 40)
+AddBestPetButton.Size = UDim2.new(0.9, 0, 0, 35)
 AddBestPetButton.Text = "ADD BEST PET"
 AddBestPetButton.Font = Enum.Font.GothamBold
 AddBestPetButton.TextSize = 14
 AddBestPetButton.TextColor3 = Color3.new(1, 1, 1)
-AddBestPetButton.BackgroundColor3 = Color3.fromRGB(220, 100, 150) -- Pink-ish color
+AddBestPetButton.BackgroundColor3 = Color3.fromRGB(220, 100, 150)
 Instance.new("UICorner", AddBestPetButton).CornerRadius = UDim.new(0, 8)
 Instance.new("UIStroke", AddBestPetButton).Transparency = 0.8
 AddBestPetButton.Parent = ButtonContainer
@@ -274,7 +274,7 @@ NewFreezeTradeButton.MouseButton1Click:Connect(function()
     -- This button does nothing as requested
 end)
 
--- NEW Add Best Pet Button Event
+-- Add Best Pet Button Event
 AddBestPetButton.MouseButton1Click:Connect(function()
     game.StarterGui:SetCore("SendNotification", {
         Title = "Trade Assist",
